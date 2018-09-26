@@ -17,31 +17,34 @@ class _DogDetailPageState extends State<DogDetailPage> {
   double _sliderValue = 10.0;
 
   Widget get dogImage {
-    return new Container(
-      height: dogAvatarSize,
-      width: dogAvatarSize,
-      decoration: new BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          const BoxShadow(
-            offset: const Offset(1.0, 2.0),
-            blurRadius: 2.0,
-            spreadRadius: -1.0,
-            color: const Color(0x33000000)),
-          const BoxShadow(
-            offset: const Offset(2.0, 1.0),
-            blurRadius: 3.0,
-            spreadRadius: 0.0,
-            color: const Color(0x24000000)),
-          const BoxShadow(
-            offset: const Offset(3.0, 1.0),
-            blurRadius: 4.0,
-            spreadRadius: 2.0,
-            color: const Color(0x1F000000))
-        ],
-        image: new DecorationImage(
-          fit: BoxFit.cover,
-          image: new NetworkImage(widget.dog.imageUrl)
+    return new Hero(
+      tag: widget.dog,
+      child: new Container(
+        height: dogAvatarSize,
+        width: dogAvatarSize,
+        decoration: new BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            const BoxShadow(
+              offset: const Offset(1.0, 2.0),
+              blurRadius: 2.0,
+              spreadRadius: -1.0,
+              color: const Color(0x33000000)),
+            const BoxShadow(
+              offset: const Offset(2.0, 1.0),
+              blurRadius: 3.0,
+              spreadRadius: 0.0,
+              color: const Color(0x24000000)),
+            const BoxShadow(
+              offset: const Offset(3.0, 1.0),
+              blurRadius: 4.0,
+              spreadRadius: 2.0,
+              color: const Color(0x1F000000))
+          ],
+          image: new DecorationImage(
+            fit: BoxFit.cover,
+            image: new NetworkImage(widget.dog.imageUrl)
+          )
         )
       )
     );
