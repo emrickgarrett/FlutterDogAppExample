@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dog_example/dog_model.dart';
+import 'dart:async';
 
 class DogDetailPage extends StatefulWidget {
 
@@ -146,7 +147,27 @@ class _DogDetailPageState extends State<DogDetailPage> {
   }
 
   void updateRating() {
-    setState(() => widget.dog.rating = _sliderValue.toInt());
+    if(_sliderValue < 10) {
+      _ratingErrorDialog();
+    } else {
+      setState(() => widget.dog.rating = _sliderValue.toInt());
+    }
+  }
+
+  Future _ratingErrorDialog() async {
+    return showDialog(
+        context: context,
+        child: new AlertDialog(
+            title: new Text('Error!'),
+            content: new Text("All dogs are good dogs"),
+            actions: [
+              new FlatButton(
+                  child: new Text("Try Again"),
+                  onPressed: () => Navigator.of(context).pop()
+              )
+            ]
+        )
+    );
   }
 
   @override
