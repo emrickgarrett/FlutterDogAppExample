@@ -1,6 +1,6 @@
 # flutter_dog_example
 
-A new Flutter application.
+Just an example app that allows you to add and rate Dogs
 
 ## Getting Started
 
